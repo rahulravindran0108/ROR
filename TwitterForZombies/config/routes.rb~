@@ -3,7 +3,7 @@ TwitterForZombies::Application.routes.draw do
   root :to=> "zombies#index"
   get "signin" => "zombies#signin"
   get "signedout" => "zombies#signedout"
-  get "home" => "zombies#index"
+  get "home" => :root
   get "register" => "zombies#new"
   post "signin" => "zombies#login"
   # The priority is based upon order of creation:

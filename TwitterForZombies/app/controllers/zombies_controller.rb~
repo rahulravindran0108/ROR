@@ -15,7 +15,7 @@ class ZombiesController < ApplicationController
   end
 
   def signedout
-    session[:zombie_id] = nil    
+    session[:user_id] = nil    
     redirect_to :root
   end
 

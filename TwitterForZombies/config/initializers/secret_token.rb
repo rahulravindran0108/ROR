@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-TwitterForZombies::Application.config.secret_token = '0b3dfcf4a4750ee1881d4aceb2e0cd097be4b814bf08d48674a1559d4ec63054ea0d950063e7f5d35b53732d6514265bd4b9ada25729391e94e5b5fd4e17704f'
+TwitterForZombies::Application.config.secret_token = 'cab952427fcc78eb66c7b6e031626fe814f1763933ecb09b638349e3a519b749b7a7623c9044cc3d2d91aaeb4d95d534bd9a63e5f3862cdfc660c2f8f52cc1bb'

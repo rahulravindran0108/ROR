@@ -11,16 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130622174230) do
+ActiveRecord::Schema.define(:version => 20130625150727) do
 
   create_table "zombies", :force => true do |t|
-    t.string   "name"
-    t.text     "bio"
+    t.string   "username"
     t.integer  "age"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.text     "bio"
     t.string   "email"
     t.boolean  "rotting"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "password_hash"
+    t.string   "password_salt"
   end
 
 end
