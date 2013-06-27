@@ -1,6 +1,18 @@
-      <form class="form-signin" method="post">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <input type="text" class="input-block-level" name="email" placeholder="Email address">
-        <input type="password" class="input-block-level" name="password" placeholder="Password">        
-        <button class="btn btn-large btn-primary" type="submit">Sign in</button>
-      </form>
+<p>Sign In</p>
+<%= form_for @zombie, :as => :zombie, :url => signin_path(@zombie) do |f| %>
+  <p>
+    <%= f.label 'username or email:' %><br />
+    <%= f.text_field :username %>
+  </p>
+  <p>
+    <%= f.label 'password:' %><br />
+    <%= f.password_field :password %>
+  </p>
+<p>
+  <%= link_to 'forgot your password?', :forgot_password %>
+</p>
+  <p>
+    <%= f.submit 'Sign In' %>&nbsp;&nbsp;&nbsp;
+    <%= f.submit 'Clear Form', :type => 'reset' %>
+  </p>
+<% end %>

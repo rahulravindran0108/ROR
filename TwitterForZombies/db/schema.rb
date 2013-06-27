@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130625150727) do
+ActiveRecord::Schema.define(:version => 20130626142758) do
 
   create_table "zombies", :force => true do |t|
     t.string   "username"
@@ -23,6 +23,9 @@ ActiveRecord::Schema.define(:version => 20130625150727) do
     t.datetime "updated_at"
     t.string   "password_hash"
     t.string   "password_salt"
+    t.string   "password_reset_token"
+    t.datetime "password_expires_after"
+    t.string   "authentication_token"
   end
 
 end

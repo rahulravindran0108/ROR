@@ -132,15 +132,16 @@
           <% if current_user %>
              <h5 class="muted">Logged in as <%= link_to current_user.username,current_user %></h2>           
 	     <h5 class="muted"><%= link_to "Log out",signedout_path %></h5>	
+             <h5 class="muted"><%= link_to "Account Settings", edit_zombie_path(current_user) %></h5>
 	  <% end %>	
         <div class="navbar">
           <div class="navbar-inner">
             <div class="container">
               <ul class="nav">
-                <li><a href="<%= :home %>">Home</a></li>
+                <li><a href="<%= home_path %>">Home</a></li>
                 <li><a href="<%= signin_path %>">Sign In</a></li>
-                <li><a href="<%= :register %>">Register</a></li>
-                <li><a href="#">Downloads</a></li>
+                <li><a href="<%= register_path %>">Register</a></li>
+                <li><a href="<%= listing_path %>">Listing</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
               </ul>
@@ -149,6 +150,12 @@
         </div><!-- /.navbar -->
       </div>
 <%= yield %>
+      <hr>
 
+      <div class="footer">
+        <p>&copy; Company 2013</p>
+      </div>
+
+    </div> <!-- /container -->
 </body>
 </html>

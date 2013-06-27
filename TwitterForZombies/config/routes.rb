@@ -4,8 +4,16 @@ TwitterForZombies::Application.routes.draw do
   get "signin" => "zombies#signin"
   get "signedout" => "zombies#signedout"
   get "home" => "zombies#index"
-  get "register" => "zombies#new"
+  get "register" => "zombies#new" 
   post "signin" => "zombies#login"
+  get "forgot_password" => "zombies#forgot_password" 
+  put "forgot_password" => "zombies#send_password_reset_instructions"
+
+  get "password_reset" => "zombies#password_reset"
+  put "password_reset" => "zombies#new_password"
+
+  get "listing" => "zombies#listing"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
