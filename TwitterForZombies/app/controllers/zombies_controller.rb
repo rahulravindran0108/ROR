@@ -11,7 +11,7 @@ class ZombiesController < ApplicationController
   end
 
   def listing
-    @zombies = Zombie.rotting
+    @zombies = Zombie.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -63,7 +63,9 @@ class ZombiesController < ApplicationController
   # GET /zombies/1.json
   def show
     @zombie = Zombie.find(params[:id])
-
+    example = @zombie.following
+    example = example[0,example.length-1]
+    @tweet = Tweet.where("zombie_id in (#{example})")
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @zombie }
@@ -131,6 +133,22 @@ class ZombiesController < ApplicationController
       format.html { redirect_to zombies_url }
       format.json { head :ok }
     end
+  end
+  
+  def following
+    example = params[:id]
+    @zombie = current_user
+    @zombie.following+=example.to_s()+","
+    @zombie.save 
+    redirect_to :root
+  end
+
+  def unfollowing
+    example = params[:id]
+    @zombie = current_user
+    @zombie.following = @zombie.following.gsub(example.to_s()+",","")
+    @zombie.save
+    redirect_to :root
   end
 
 # HTTP get

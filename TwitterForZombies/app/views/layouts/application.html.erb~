@@ -140,10 +140,12 @@
               <ul class="nav">
                 <li><a href="<%= home_path %>">Home</a></li>
                 <li><a href="<%= signin_path %>">Sign In</a></li>
-                <li><a href="<%= register_path %>">Register</a></li>
-                <li><a href="#">Downloads</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="<%= register_path %>">Register</a></li>                
+                <li><a href="<%= listing_path %>">Listing</a></li>
+                <% if current_user %>
+                  <li><a href="<%= tweets_path %>">Tweets</a></li>
+                  <li><a href="<%= mytweets_path %>">My Tweets</a></li>
+                <% end %>    
               </ul>
             </div>
           </div>

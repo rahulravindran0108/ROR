@@ -14,6 +14,21 @@ TwitterForZombies::Application.routes.draw do
 
   get "listing" => "zombies#listing"
 
+  get "tweets" => "tweets#new"
+  post "tweets" => "tweets#create"
+
+  get "mytweets" => "tweets#list"
+
+  get "alltweets" => "tweets#alltweets"
+  
+  get "updatelikes" => "tweets#updatelikes"
+ 
+  get "updatedislikes" => "tweets#updatedislikes"
+
+  get "following" => "zombies#following"
+  
+  get "unfollowing" => "zombies#unfollowing"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

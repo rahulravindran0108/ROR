@@ -19,6 +19,7 @@
     <td><%= zombie.bio %></td>
     <td><%= zombie.email %></td>
     <td><%= zombie.rotting %></td>
+    <td><%= zombie.tweets[0] %></td>
     <% if current_user %>
       <% if current_user.username == zombie.username %>
         <td><%= link_to 'Show', zombie %></td>

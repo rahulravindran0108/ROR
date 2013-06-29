@@ -1,6 +1,8 @@
 class Zombie < ActiveRecord::Base
-  attr_accessible :email, :username, :password, :password_confirmation, :age, :bio, :new_password, :new_password_confirmation, :remember_me, :rotting
+    attr_accessible :email, :username, :password, :password_confirmation, :age, :bio, :new_password, :new_password_confirmation, :remember_me, :rotting, :gravatarurl
   attr_accessor :password, :new_password, :remember_me
+  
+  has_many :tweets, dependent: :destroy
 
   # scope variables
   scope :rotting, where(rotting:true)
@@ -10,6 +12,7 @@ class Zombie < ActiveRecord::Base
   # All validations and encryption procedures.
   before_save :encrypt_password
   before_save :make_rotting
+  before_save :gravatar_url
 
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
@@ -35,6 +38,13 @@ class Zombie < ActiveRecord::Base
       self.rotting = false
       true
     end
+  end
+
+  def gravatar_url
+    stripped_email = self.email.strip
+    downcased_email = stripped_email.downcase
+    hash = Digest::MD5.hexdigest(downcased_email)
+    self.gravatarurl = "http://gravatar.com/avatar/#{hash}"    
   end
 
 

@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130626142758) do
+ActiveRecord::Schema.define(:version => 20130629095743) do
+
+  create_table "tweets", :force => true do |t|
+    t.integer  "zombie_id"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "likes",      :default => 0
+    t.text     "likedby",    :default => ""
+  end
 
   create_table "zombies", :force => true do |t|
     t.string   "username"
@@ -26,6 +35,8 @@ ActiveRecord::Schema.define(:version => 20130626142758) do
     t.string   "password_reset_token"
     t.datetime "password_expires_after"
     t.string   "authentication_token"
+    t.string   "gravatarurl"
+    t.text     "following",              :default => ""
   end
 
 end

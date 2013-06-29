@@ -6,4 +6,13 @@
  *= require_tree . 
 */
 
+.status {
+	border-bottom: solid 1px #CCC;
+	padding: 5px 0;
+}
 
+
+
+.status.hover {
+	background: #FAFAFA;
+}
